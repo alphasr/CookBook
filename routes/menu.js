@@ -1,6 +1,3 @@
-/*
- * GET users listing.
- */
 exports.list = function(req, res){
 
   req.getConnection(function(err,connection){
@@ -10,7 +7,13 @@ exports.list = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
 
-            res.render('menu',{data:menuData});
+            if (req.session && req.session.user) { // Check if session exists
+                res.render('menu',{data:menuData, userData:req.session.user});
+            }
+            else {
+              res.redirect('/login');
+            }
+
          });
 
          console.log(query.sql);
@@ -26,7 +29,7 @@ exports.add = function(req, res){
         if(err)
             console.log("Error Selecting Recipes: %s ",err );
 
-        res.render('add_menu', {data:recipeData});
+        res.render('add_menu', {data:recipeData, userData:req.session.user});
      });
 
      console.log(query.sql);
@@ -45,7 +48,7 @@ exports.edit = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
 
-            res.render('edit_menu',{data:menuData});
+            res.render('edit_menu',{data:menuData, userData:req.session.user});
 
 
          });

@@ -87,7 +87,7 @@
                       <!-- ============================================================== -->
                       <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <% if(userData[0].UserID == 1){ %>
+                              <% if(userData.UserID == 1){ %>
                                 <img src="/assets/images/users/1.jpg" alt="manager-pic" class="profile-pic"/>
                               <% } else { %>
                                 <img src="/assets/images/users/2.jpg" alt="cook-pic" class="profile-pic"/>
@@ -98,15 +98,15 @@
                                     <li>
                                         <div class="dw-user-box">
                                             <div class="u-img">
-                                              <% if(userData[0].UserID == 1){ %>
+                                              <% if(userData.UserID == 1){ %>
                                                 <img src="/assets/images/users/1.jpg" alt="manager-pic">
                                               <% } else { %>
                                                 <img src="/assets/images/users/2.jpg" alt="cook-pic">
                                               <% } %>
                                             </div>
                                             <div class="u-text">
-                                                <h4><%=userData[0].FirstName%>, <%=userData[0].LastName%><data></h4>
-                                                <p class="text-muted"><%=userData[0].Login%></p><a href="#" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <h4><%=userData.FirstName%> <%=userData.LastName%><data></h4>
+                                                <p class="text-muted"><%=userData.Login%></p><a href="#" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>

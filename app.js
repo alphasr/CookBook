@@ -59,7 +59,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
+/*
 var connection = mysql.createConnection({
               host     : 'localhost',
               user     : 'root',
@@ -69,6 +69,17 @@ var connection = mysql.createConnection({
             });
 
 connection.connect();
+*/
+
+app.use(
+  connection(mysql,{
+       host:'localhost',
+       user:'root',
+       password:'',
+       port:3306,
+       database:'cookbook_db'
+   })
+);
 
 global.db = connection;
 
@@ -80,13 +91,17 @@ app.use(session({
             }))
 
 app.get('/', routes.index);//call for main index page
-app.get('/login', routes.index);//call for login page
-app.post('/login', users.login);//call for login post
-app.get('/logout', users.logout); //call for logout post
+app.post('/login', routes.login);//call for login post
+app.get('/logout', routes.logout); //call for logout post
 
 app.get('/dashboard', dashboard.index);
 
 app.get('/users', users.list);
+app.get('/users/add', users.add);
+app.post('/users/add', users.save);
+app.get('/users/delete/:id', users.delete_user);
+app.get('/users/edit/:id', users.edit);
+app.post('/users/edit/:id',users.save_edit);
 
 app.get('/stock', stock.list);
 

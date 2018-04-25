@@ -10,7 +10,12 @@ exports.list = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
 
-            res.render('requests',{data:requestData});
+                if (req.session && req.session.user) { // Check if session exists
+                    res.render('requests',{data:requestData, userData:req.session.user});
+                }
+                else {
+                  res.redirect('/login');
+                }
          });
 
          console.log(query.sql);
