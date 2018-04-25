@@ -13,6 +13,10 @@ var bodyParser = require('body-parser');
 //load routes
 var recipes = require('./routes/recipes');
 var menu = require('./routes/menu');
+var login = require('./routes/login');
+var users = require('./routes/users');
+var stock = require('./routes/stock');
+var requests = require('./routes/requests');
 
 var app = express();
 
@@ -54,21 +58,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-/*
-var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'cookbook',
-    database: 'cookbook_db'
-});
-
-db.connect(function(err){
-  if(!err) {
-      console.log("Database is Connected!");
-  } else {
-      console.log("Error connecting to Database!");
-  }
-});*/
 
 app.use(
     connection(mysql,{
@@ -82,6 +71,14 @@ app.use(
 );
 
 app.get('/', routes.index);
+
+app.get('/login', login.auth);
+
+app.get('/users', users.list);
+
+app.get('/stock', stock.list);
+
+app.get('/requests', requests.list);
 
 app.get('/recipes', recipes.list);
 app.get('/recipes/add', recipes.add);
