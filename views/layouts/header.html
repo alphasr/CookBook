@@ -85,9 +85,40 @@
                       <!-- ============================================================== -->
                       <!-- Profile -->
                       <!-- ============================================================== -->
-                      <li class="nav-item">
-                          <a class="nav-link waves-effect waves-dark" href="#"><img src="/assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
-                      </li>
+                      <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <% if(userData[0].UserID == 1){ %>
+                                <img src="/assets/images/users/1.jpg" alt="manager-pic" class="profile-pic"/>
+                              <% } else { %>
+                                <img src="/assets/images/users/2.jpg" alt="cook-pic" class="profile-pic"/>
+                              <% } %>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <div class="dw-user-box">
+                                            <div class="u-img">
+                                              <% if(userData[0].UserID == 1){ %>
+                                                <img src="/assets/images/users/1.jpg" alt="manager-pic">
+                                              <% } else { %>
+                                                <img src="/assets/images/users/2.jpg" alt="cook-pic">
+                                              <% } %>
+                                            </div>
+                                            <div class="u-text">
+                                                <h4><%=userData[0].FirstName%>, <%=userData[0].LastName%><data></h4>
+                                                <p class="text-muted"><%=userData[0].Login%></p><a href="#" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                        </div>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
                   </ul>
               </div>
           </nav>
@@ -104,7 +135,7 @@
               <!-- Sidebar navigation-->
               <nav class="sidebar-nav">
                   <ul id="sidebarnav">
-                      <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                      <li> <a class="waves-effect waves-dark" href="/dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
                       <li> <a class="waves-effect waves-dark" href="/users" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">User Management</span></a></li>
                       <li> <a class="waves-effect waves-dark" href="/recipes" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Recipe Management</span></a></li>
                       <li> <a class="waves-effect waves-dark" href="/menu" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Menu Management</span></a></li>

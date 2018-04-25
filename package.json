@@ -13,6 +13,7 @@
     "express": "~4.13.1",
     "express-handlebars": "^3.0.0",
     "express-myconnection": "^1.0.4",
+    "express-session": "^1.15.6",
     "mongoose": "^4.4.11",
     "morgan": "~1.6.1",
     "multiselect-two-sides": "^2.5.0",

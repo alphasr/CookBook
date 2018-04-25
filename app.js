@@ -9,11 +9,12 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 //load routes
 var recipes = require('./routes/recipes');
 var menu = require('./routes/menu');
-var login = require('./routes/login');
+var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
 var stock = require('./routes/stock');
 var requests = require('./routes/requests');
@@ -59,20 +60,31 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.use(
-    connection(mysql,{
-        host: 'localhost', //'localhost',
-        user: 'root',
-        password : '',
-        port : '3306',
-        database:'cookbook_db'
+var connection = mysql.createConnection({
+              host     : 'localhost',
+              user     : 'root',
+              password : '',
+              port : '3306',
+              database : 'cookbook_db'
+            });
 
-    },'pool') //or single
-);
+connection.connect();
 
-app.get('/', routes.index);
+global.db = connection;
 
-app.get('/login', login.auth);
+app.use(session({
+              secret: 'code cat',
+              resave: false,
+              saveUninitialized: true,
+              cookie: { maxAge: 60000 }
+            }))
+
+app.get('/', routes.index);//call for main index page
+app.get('/login', routes.index);//call for login page
+app.post('/login', users.login);//call for login post
+app.get('/logout', users.logout); //call for logout post
+
+app.get('/dashboard', dashboard.index);
 
 app.get('/users', users.list);
 
