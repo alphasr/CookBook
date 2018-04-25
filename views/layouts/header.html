@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CookBook</title>
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/stylesheets/css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="/stylesheets/css/colors/default-dark.css" id="theme" rel="stylesheet">
+</head>
+<body>
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+      <div class="loader">
+          <div class="loader__figure"></div>
+          <p class="loader__label">CookBook</p>
+      </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+              <!-- ============================================================== -->
+              <!-- Logo -->
+              <!-- ============================================================== -->
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/">
+                      <!-- Logo icon --><b>
+                          <img src="/assets/images/logo-icon.png" alt="CookBook" class="dark-logo" />
+                      </b>
+                      <!--End Logo icon -->
+                      <!-- Logo text -->
+                      <span>
+                          <img src="/assets/images/logo-text.png" alt="CookBok" class="dark-logo" />
+                      </span>
+                  </a>
+              </div>
+              <!-- ============================================================== -->
+              <!-- End Logo -->
+              <!-- ============================================================== -->
+              <div class="navbar-collapse">
+                  <!-- ============================================================== -->
+                  <!-- toggle and nav items -->
+                  <!-- ============================================================== -->
+                  <ul class="navbar-nav mr-auto">
+                      <!-- This is  -->
+                      <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                  </ul>
+                  <!-- ============================================================== -->
+                  <!-- User profile and search -->
+                  <!-- ============================================================== -->
+                  <ul class="navbar-nav my-lg-0">
+                      <!-- ============================================================== -->
+                      <!-- Search -->
+                      <!-- ============================================================== -->
+                      <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javaScript:document.getElementById('searchForm').submit(); return false;"><i class="ti-search"></i></a>
+                          <form class="app-search" id="searchForm">
+                              <input type="text" id="searchItem" class="form-control" placeholder="Search & Enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                          </form>
+                      </li>
+                      <!-- ============================================================== -->
+                      <!-- Profile -->
+                      <!-- ============================================================== -->
+                      <li class="nav-item">
+                          <a class="nav-link waves-effect waves-dark" href="#"><img src="/assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </header>
+      <!-- ============================================================== -->
+      <!-- End Topbar header -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <aside class="left-sidebar">
+          <!-- Sidebar scroll-->
+          <div class="scroll-sidebar">
+              <!-- Sidebar navigation-->
+              <nav class="sidebar-nav">
+                  <ul id="sidebarnav">
+                      <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                      <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">User Management</span></a></li>
+                      <li> <a class="waves-effect waves-dark" href="/recipes" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Recipe Management</span></a></li>
+                      <li> <a class="waves-effect waves-dark" href="/menu" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Menu Management</span></a></li>
+                      <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Stock Management</span></a></li>
+                      <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-checkbox-multiple-marked"></i><span class="hide-menu">Approval Requests</span></a></li>
+                  </ul>
+              </nav>
+              <!-- End Sidebar navigation -->
+          </div>
+          <!-- End Sidebar scroll-->
+      </aside>
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
