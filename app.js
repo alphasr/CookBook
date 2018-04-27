@@ -91,6 +91,7 @@ app.use(session({
             }))
 
 app.get('/', routes.index);//call for main index page
+app.get('/login', routes.index);//call for login get
 app.post('/login', routes.login);//call for login post
 app.get('/logout', routes.logout); //call for logout post
 
