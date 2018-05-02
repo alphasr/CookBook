@@ -43,12 +43,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <% if(data.length){
-                                    for(var i = 0; i < data.length; i++) { %>
+                                  <% if(recipeArr.length){
+                                    for(var i = 0; i < recipeArr.length; i++) { %>
                                       <tr>
-                                          <td><%=data[i].RecipeID%></td>
-                                          <td><%=data[i].Name%></td>
-                                          <td><%=data[i].Description%></td>
+                                          <td><%=recipeArr[i].RecipeID%></td>
+                                          <td><%=recipeArr[i].Name%></td>
+                                          <td><%=recipeArr[i].Description%></td>
                                           <td>
                                               <a class="btn mdi waves-effect waves-light btn-warning mdi-tooltip-edit" href="../recipes/edit/<%=data[i].RecipeID%>"></a>
                                               <a class="btn waves-effect waves-light btn-danger mdi mdi-delete" href="../recipes/delete/<%=data[i].RecipeID%>"></a>
