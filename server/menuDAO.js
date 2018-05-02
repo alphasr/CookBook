@@ -1,22 +1,22 @@
-var table_name = 'Recipe';
+var table_name = 'Menu';
 
-var recipeDao = {
+var menuDao = {
 
-	createRecipe : function (recipe, OnSuccessfulCallback) {//
+	createMenu : function (menu, OnSuccessfulCallback) {//
 		var insertStatement = "INSERT INTO " + table_name + " SET ?";
 
-		var recipeArr = {
+		var menuArr = {
 			//ColumnName: recipe...
-			name: recipe.name,
-			description: recipe.description
+			date: menu.date,
+			state: new
 		};
 
-		console.log(recipeArr);
+		console.log(menuArr);
 
 		var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();//from mysqlConnectionStringProvider.js
 
 		if (connection) {
-			connection.query(insertStatement, recipeArr, function (err, result) {
+			connection.query(insertStatement, menuArr, function (err, result) {
 				if (err) { }
 
 				OnSuccessfulCallback({status: 'successful'});
@@ -27,9 +27,9 @@ var recipeDao = {
 		}
 	},
 
-	getAllRecipe: function (callback) {
+	getAllMenu: function (callback) {
 		var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-		var queryStatement = "SELECT * FROM " + table_name + " ORDER BY RecipeID";
+		var queryStatement = "SELECT * FROM " + table_name + " ORDER BY MenuID";
 
 		if (connection) {
 			connection.query(queryStatement, function (err, rows, fields) {
@@ -44,12 +44,12 @@ var recipeDao = {
 	}
 	,
 
-	getRecipeById : function (recipe_id, callback) {
+	getMenuById : function (menu_id, callback) {
 		var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-		var queryStatement = "SELECT * FROM " + table_name + " WHERE RecipeID = ?";
+		var queryStatement = "SELECT * FROM " + table_name + " WHERE MenuID = ?";
 
 		if(connection) {
-			connection.query(queryStatement, [recipe_id], function (err, rows, fields) {
+			connection.query(queryStatement, [menu_id], function (err, rows, fields) {
 				if (err) { throw err; }
 
 				console.log(rows);//working
@@ -61,13 +61,13 @@ var recipeDao = {
 		}
 	},
 
-	updateRecipe: function(recipe_name, recipe_description, recipe_id, callback) {
+	updateMenu: function(menu_date, menu_state, menu_id, callback) {
 
 		var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-		var queryStatement = "UPDATE " + table_name + " SET Name = ? , Description = ?, WHERE RecipeID = ?";
+		var queryStatement = "UPDATE " + table_name + " SET Date = ? , State = ?, WHERE MenuID = ?";
 
 		if(connection) {
-			connection.query(queryStatement, [recipe_name, recipe_description, recipe_id], function (err, rows, fields) {
+			connection.query(queryStatement, [menu_date, menu_state, menu_id], function (err, rows, fields) {
 				if (err) { throw err; }
 
 				console.log(rows);
@@ -82,12 +82,12 @@ var recipeDao = {
 
 	},
 
-	deleteRecipeById: function(recipe_id, callback) {
+	deleteMenuById: function(menu_id, callback) {
 		var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-		var queryStatement = "DELETE FROM " + table_name + " WHERE RecipeID = ?";
+		var queryStatement = "DELETE FROM " + table_name + " WHERE MenuID = ?";
 
 		if(connection) {
-			connection.query(queryStatement, [recipe_id], function (err, rows, fields) {
+			connection.query(queryStatement, [menu_id], function (err, rows, fields) {
 				if (err) { throw err; }
 
 				console.log(rows);
@@ -102,4 +102,4 @@ var recipeDao = {
 	}
 };
 
-module.exports.recipeDao = recipeDao;
+module.exports.menuDao = menuDao;

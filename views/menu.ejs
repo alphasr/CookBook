@@ -43,12 +43,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <% if(data.length){
-                                    for(var i = 0; i < data.length; i++) { %>
+                                  <% if(menuArr.length){
+                                    for(var i = 0; i < menuArr.length; i++) { %>
                                       <tr>
-                                          <td><%=data[i].MenuID%></td>
-                                          <td><%=data[i].Date%></td>
-                                          <td><%=data[i].State%></td>
+                                          <td><%=menuArr[i].MenuID%></td>
+                                          <td><%=menuArr[i].Date%></td>
+                                          <td><%=menuArr[i].State%></td>
                                           <td>
                                               <a class="btn mdi waves-effect waves-light btn-warning mdi-tooltip-edit" href="../menu/edit/<%=data[i].MenuID%>"> Edit</a>
                                               <a class="btn mdi waves-effect waves-light btn-danger mdi-delete" href="../menu/delete/<%=data[i].MenuID%>"> Delete</a>

@@ -1,6 +1,6 @@
 /* Route, Render */
 //productCategoryRouteConfiguration.js
-var fileDao = '../server/recipesDao.js';
+var fileDao = '../server/recipesDAO.js';
 
 function recipeRouteConfig(app) {
     this.app = app;
