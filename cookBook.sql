@@ -4,7 +4,7 @@
 /*  DBMS       : MySql 						*/
 /* ---------------------------------------------------- */
 
-SET FOREIGN_KEY_CHECKS=0 
+SET FOREIGN_KEY_CHECKS=0
 ;
 
 /* Drop Tables */
@@ -131,55 +131,58 @@ COMMENT = 'User represents account created by Manager or Cook and it holds infor
 
 /* Create Foreign Key Constraints */
 
-ALTER TABLE `Cook` 
+ALTER TABLE `Cook`
  ADD CONSTRAINT `FK_Cook_is`
 	FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `Manager` 
+ALTER TABLE `Manager`
  ADD CONSTRAINT `FK_Manager_is`
 	FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `Menu` 
+ALTER TABLE `Menu`
  ADD CONSTRAINT `FK_Menu_Cook`
 	FOREIGN KEY (`CookID`) REFERENCES `Cook` (`CookID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `Menu` 
+ALTER TABLE `Menu`
  ADD CONSTRAINT `FK_Menu_Manager`
 	FOREIGN KEY (`ManagerID`) REFERENCES `Manager` (`ManagerID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `MenuRecipe` 
+ALTER TABLE `MenuRecipe`
  ADD CONSTRAINT `FK_MenuRecipe_Recipe`
 	FOREIGN KEY (`RecipeID`) REFERENCES `Recipe` (`RecipeID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `MenuRecipe` 
+ALTER TABLE `MenuRecipe`
  ADD CONSTRAINT `FK_MenuRecipe_Menu`
 	FOREIGN KEY (`MenuID`) REFERENCES `Menu` (`MenuID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `ObjectionsToTheMenu` 
+ALTER TABLE `ObjectionsToTheMenu`
  ADD CONSTRAINT `FK_Objections to the menu_created by`
 	FOREIGN KEY (`ManagerID`) REFERENCES `Manager` (`ManagerID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `ObjectionsToTheMenu` 
+ALTER TABLE `ObjectionsToTheMenu`
  ADD CONSTRAINT `FK_Objections to the menu_related to`
 	FOREIGN KEY (`MenuID`) REFERENCES `Menu` (`MenuID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `Recipe` 
+ALTER TABLE `Recipe`
  ADD CONSTRAINT `FK_Recipe_added by`
 	FOREIGN KEY (`CookID`) REFERENCES `Cook` (`CookID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE `Request` 
+ALTER TABLE `Request`
  ADD CONSTRAINT `FK_Request_Menu`
 	FOREIGN KEY (`MenuID`) REFERENCES `Menu` (`MenuID`) ON DELETE No Action ON UPDATE No Action
 ;
 
-SET FOREIGN_KEY_CHECKS=1 
+SET FOREIGN_KEY_CHECKS=1
 ;
+
+INSERT INTO `User` (`FirstName`, `LastName`, `Login`, `Password`, `UserID`) VALUES ('Manager', 'A', 'manager_a', 'cb@manager', '1');
+INSERT INTO `User` (`FirstName`, `LastName`, `Login`, `Password`, `UserID`) VALUES ('Cook', 'A', 'cook_a', 'cb@cook', '2');
