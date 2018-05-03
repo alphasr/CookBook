@@ -1,3 +1,5 @@
+var connectionProvider = require('./mysqlConnectionStringProvider.js');//path
+
 var table_name = 'Menu';
 
 var menuDao = {

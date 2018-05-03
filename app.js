@@ -5,7 +5,6 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -76,8 +75,8 @@ app.use(
        host:'localhost',
        user:'root',
        password:'',
-       port:3306,
-       database:'cookbook_db'
+       database:'cookbook_db',
+       insecureAuth: true
    })
 );
 

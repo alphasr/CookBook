@@ -19,7 +19,7 @@ exports.login = function(req, res){
              if(results.length){
                 req.session.userId = results[0].UserID;
                 req.session.user = results[0];
-                console.log(results[0].UserID);
+                console.log('Logged In as User: ' + results[0].UserID);
                 res.render('dashboard', {userData:req.session.user});
                 console.log('Login Success!');
              }

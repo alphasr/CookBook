@@ -44,6 +44,9 @@ recipeRouteConfig.prototype.addRoutes = function () {
             if (request.session && request.session.user) {
               response.render('add_recipe', {userData:request.session.user});
             }
+            else {
+              redirect('/login');
+            }
         }
     });
 
@@ -58,8 +61,15 @@ recipeRouteConfig.prototype.addRoutes = function () {
 
             recipeDao.recipeDao.createRecipe(request.body,
                 function (status) {
-                    response.json(status);
-                    // console.log(status);
+                    //response.json(status);
+                    if (request.session && request.session.user) {
+                      response.render('recipes', {userData:request.session.user});
+                    }
+                    else {
+                      redirect('/login');
+                    }
+
+                    console.log(status);
                 });
         }
     });
@@ -72,6 +82,9 @@ recipeRouteConfig.prototype.addRoutes = function () {
           if (request.session && request.session.user) {
             response.render('recipes', {userData:request.session.user});
           }
+          else {
+            redirect('/login');
+          }
         }
     });
 
@@ -82,6 +95,9 @@ recipeRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function (request, response) {
           if (request.session && request.session.user) {
             response.render('edit_recipe', {userData:request.session.user});
+          }
+          else {
+            redirect('/login');
           }
         }
     });
@@ -108,6 +124,9 @@ recipeRouteConfig.prototype.addRoutes = function () {
         callbackFunction: function (request, response) {
           if (request.session && request.session.user) {
             response.render('edit_recipe', {userData:request.session.user});
+          }
+          else {
+            redirect('/login');
           }
         }
     });
@@ -136,8 +155,15 @@ recipeRouteConfig.prototype.addRoutes = function () {
             var recipeDao = require(fileDao);
             recipeDao.recipeDao.updateRecipe(request.body.recipe_name, request.body.recipe_description, request.body.recipe_id,
                 function (status) {
-                    // console.log(status);
-                    response.json(status);
+                    console.log(status);
+
+                    if (request.session && request.session.user) {
+                      response.render('recipes', {userData:request.session.user});
+                    }
+                    else {
+                      redirect('/login');
+                    }
+                    //response.json(status);
             });
         }
     });
@@ -151,8 +177,15 @@ recipeRouteConfig.prototype.addRoutes = function () {
             var recipeDao = require(fileDao);
             recipeDao.recipeDao.deleteRecipeById(request.params.recipe_id,
                 function (status) {
-                    // console.log(status);
-                    response.json(status);
+                    console.log(status);
+
+                    if (request.session && request.session.user) {
+                      response.render('recipes', {userData:request.session.user});
+                    }
+                    else {
+                      redirect('/login');
+                    }
+                    //response.json(status);
                 });
         }
     });
