@@ -17,7 +17,21 @@ var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
 var stock = require('./routes/stock');
 var requests = require('./routes/requests');
-
+/*
+//load controllers
+var recipeControllers = require('require-all')({
+  dirname     :  __dirname + '/controllers/recipes',
+  filter      :  /(.+Controller)\.js$/,
+  excludeDirs :  /^\.(git|svn)$/,
+  recursive   : true
+});
+var menuControllers = require('require-all')({
+  dirname     :  __dirname + '/controllers/menu',
+  filter      :  /(.+Controller)\.js$/,
+  excludeDirs :  /^\.(git|svn)$/,
+  recursive   : true
+});
+*/
 var app = express();
 
 //Database Connection
@@ -27,7 +41,6 @@ var mysql = require('mysql');
 // all environments
 app.set('port', process.env.PORT || 4300);
 //View Engine
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -35,7 +48,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('stylus').middleware(path.join(__dirname, 'controllers')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development error handler
@@ -65,9 +77,8 @@ app.use(
        host:'localhost',
        user:'root',
        password:'',
-       database:'cookbook_db',
-       insecureAuth: true
-   })
+       database:'cookbook_db'
+  })
 );
 
 global.db = connection;
