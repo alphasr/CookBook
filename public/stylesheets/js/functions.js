@@ -1,11 +1,11 @@
 function addRecipe(){
-    window.location.href = '/recipes/add';
+    window.location.href = '/createRecipe';
 }
 function cancelRecipe(){
     window.location.href = '/recipes';
 }
 function addMenu(){
-    window.location.href = '/menu/add';
+    window.location.href = '/createMenu';
 }
 function cancelMenu(){
     window.location.href = '/menu';

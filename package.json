@@ -18,7 +18,8 @@
     "morgan": "~1.6.1",
     "multiselect-two-sides": "^2.5.0",
     "mysql": "^2.15.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
     "extract-text-webpack-plugin": "^3.0.2"

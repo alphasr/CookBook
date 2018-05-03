@@ -25,7 +25,7 @@ var recipeDao = {
 
 				// console.log(result)
 			});
-			connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+			//connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 		}
 	},
 
@@ -41,7 +41,7 @@ var recipeDao = {
 
 				callback(rows);
 			});
-			connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+			//connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 		}
 	}
 	,
@@ -59,7 +59,7 @@ var recipeDao = {
 				callback(rows);
 			});
 
-			connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+			//connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 		}
 	},
 
@@ -79,7 +79,7 @@ var recipeDao = {
 				}
 			});
 
-			connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+			//connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 		}
 
 	},
@@ -99,7 +99,7 @@ var recipeDao = {
 				}
 			});
 
-			connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+			//connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 		}
 	}
 };

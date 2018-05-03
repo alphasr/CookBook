@@ -1,5 +1,4 @@
 /* Route, Render */
-//productCategoryRouteConfiguration.js
 var fileDao = '../server/menuDAO.js';
 
 function menuRouteConfig(app) {

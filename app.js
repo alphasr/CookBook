@@ -11,8 +11,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 //load routes
-var recipes = require('./routes/recipes');
-var menu = require('./routes/menu');
+var recipesRoute = require('./routes/recipes');
+var menuRoute = require('./routes/menu');
 var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
 var stock = require('./routes/stock');
@@ -35,6 +35,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(require('stylus').middleware(path.join(__dirname, 'controllers')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development error handler
@@ -58,17 +59,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-/*
-var connection = mysql.createConnection({
-              host     : 'localhost',
-              user     : 'root',
-              password : '',
-              port : '3306',
-              database : 'cookbook_db'
-            });
-
-connection.connect();
-*/
 
 app.use(
   connection(mysql,{
@@ -107,23 +97,9 @@ app.get('/stock', stock.list);
 
 app.get('/requests', requests.list);
 
-new recipes(app);
-new menu(app);
-/*
-app.get('/recipes', recipes.list);
-app.get('/recipes/add', recipes.add);
-app.post('/recipes/add', recipes.save);
-app.get('/recipes/delete/:id', recipes.delete_recipe);
-app.get('/recipes/edit/:id', recipes.edit);
-app.post('/recipes/edit/:id',recipes.save_edit);
-*
-app.get('/menu', menu.list);
-app.get('/menu/add', menu.add);
-app.post('/menu/add', menu.save);
-app.get('/menu/delete/:id', menu.delete_menu);
-app.get('/menu/edit/:id', menu.edit);
-app.post('/menu/edit/:id',menu.save_edit);
-*/
+new recipesRoute(app);
+new menuRoute(app);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

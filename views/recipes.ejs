@@ -43,12 +43,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <% if(recipeArr.length){
+
+                                  <tr data-ng-repeat="recipe in recipeArr">
+                                    <td>{{recipe.recipe_id}}</td>
+                                    <td>{{recipe.name}}</td>
+                                    <td>{{recipe.description}}</td>
+                                    <td>
+                                        <a class="btn mdi waves-effect waves-light btn-warning mdi-tooltip-edit" href="../editRecipe/{{recipe.recipe_id}}"></a>
+                                        <a class="btn waves-effect waves-light btn-danger mdi mdi-delete" href="../deleteRecipeById/{{recipe.recipe_id}}"></a>
+                                    </td>
+                                  </tr>
+                                  <!--
+                                  <% if(recipe.length){
                                     for(var i = 0; i < recipeArr.length; i++) { %>
                                       <tr>
-                                          <td><%=recipeArr[i].RecipeID%></td>
-                                          <td><%=recipeArr[i].Name%></td>
-                                          <td><%=recipeArr[i].Description%></td>
+                                          <td><%=recipe.recipe_id%></td>
+                                          <td><%=recipe.name%></td>
+                                          <td><%=recipe.description%></td>
                                           <td>
                                               <a class="btn mdi waves-effect waves-light btn-warning mdi-tooltip-edit" href="../recipes/edit/<%=data[i].RecipeID%>"></a>
                                               <a class="btn waves-effect waves-light btn-danger mdi mdi-delete" href="../recipes/delete/<%=data[i].RecipeID%>"></a>
@@ -60,6 +71,7 @@
                                       <td colspan="3">No Recipes</td>
                                    </tr>
                                    <% } %>
+                                 -->
                                 </tbody>
                             </table>
                         </div>
